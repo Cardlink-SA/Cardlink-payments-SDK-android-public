@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="sdk_select_card_total">
+        <item quantity="one">You have %d saved card</item>
+        <item quantity="other">You have %d saved cards</item>
+    </plurals>
+
+    <plurals name="sdk_instalments_total">
+        <item quantity="one">%d Installment</item>
+        <item quantity="other">%d Installments</item>
+    </plurals>
+</resources>

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="LibTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="colorAccent">@color/primary</item>
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
+    </style>
+
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+    <style name="Text.Normal" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/font_normal</item>
+        <item name="android:textStyle">normal</item>
+        <item name="color">@color/black_25</item>
+    </style>
+
+    <style name="Text.Intermediate" parent="Text.Normal">
+        <item name="android:textSize">@dimen/font_intermediate</item>
+    </style>
+
+    <style name="Text.Intermediate.White" parent="Text.Intermediate">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Text.Large" parent="Text.Intermediate">
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="Text.Large.White" parent="Text.Large">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <style name="Text.XLarge.White" parent="Text.Large.White">
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <style name="CreditCardFrontDotMasked">
+        <item name="maskDotColorStart">@color/white</item>
+        <item name="maskDotColorEnd">@color/gray</item>
+        <item name="maskDigitColor">@color/white</item>
+    </style>
+
+    <style name="CreditCardDotPlaceholder">
+        <item name="android:layout_width">@dimen/masked_view_dot_size</item>
+        <item name="android:layout_height">@dimen/masked_view_dot_size</item>
+        <item name="android:background">@drawable/shape_background_circle</item>
+        <item name="android:layout_margin">@dimen/spacing_2</item>
+    </style>
+
+    <style name="CreditCardDotPlaceholder.White">
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+
+    <style name="CreditCardFrontDotMasked.Italic">
+        <item name="maskDigitStyle">italic</item>
+    </style>
+
+    <style name="CreditCardEditText" parent="Text.Intermediate">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/background_default</item>
+        <item name="android:backgroundTint">@color/card_edit_text</item>
+        <item name="android:padding">@dimen/spacing_16</item>
+        <item name="android:textCursorDrawable">@drawable/cursor_color</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="CreditCardEditText.NoPadding">
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="CreditCardStepDescription" parent="Text.Intermediate">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/card_step_description</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Button" parent="Text.Intermediate.White">
+        <item name="android:background">@drawable/background_default</item>
+        <item name="android:layout_height">@dimen/button_height</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:foreground">@drawable/ripple_default_radius</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+
+    <style name="Button.AddCard" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:drawableStart">@drawable/ic_add_outline</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:drawableTint">@color/black_25</item>
+        <item name="android:textColor">@color/black_25</item>
+    </style>
+
+    <style name="Text.Instalment" parent="Text.Intermediate">
+        <item name="android:textColor">@color/instalment</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="Loader" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="android:layout_width">@dimen/loader_size</item>
+        <item name="android:layout_height">@dimen/loader_size</item>
+        <item name="trackThickness">4dp</item>
+        <item name="trackCornerRadius">4dp</item>
+        <item name="android:indeterminate">true</item>
+        <item name="indicatorSize">@dimen/loader_size</item>
+    </style>
+
+</resources>

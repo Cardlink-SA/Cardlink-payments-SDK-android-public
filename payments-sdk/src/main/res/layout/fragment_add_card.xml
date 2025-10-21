@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:orientation="vertical">
+
+    <gr.cardlink.payments.presentation.ui.view.ToolbarView
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_8"
+        android:text="@string/sdk_payment" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contentContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_default_top_radius">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/spacing_24" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/spacing_24" />
+
+            <gr.cardlink.payments.presentation.ui.view.card.single.SingleCardInputView
+                android:id="@+id/singleCardInputView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_36"
+                app:layout_constraintEnd_toStartOf="@id/endGuideline"
+                app:layout_constraintStart_toEndOf="@id/startGuideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <CheckBox
+                android:id="@+id/storeCardCheckBox"
+                style="@style/Text.Normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_12"
+                android:text="@string/sdk_checkbox_save_card"
+                android:buttonTint="@color/secondary"
+                app:layout_constraintStart_toEndOf="@id/startGuideline"
+                app:layout_constraintTop_toBottomOf="@id/singleCardInputView"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <gr.cardlink.payments.presentation.ui.view.MainButtonView
+                android:id="@+id/proceedButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_28"
+                android:enabled="false"
+                android:text="@string/sdk_payment_proceed"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/endGuideline"
+                app:layout_constraintStart_toEndOf="@id/startGuideline"
+                app:layout_constraintTop_toBottomOf="@id/storeCardCheckBox"
+                app:layout_constraintVertical_bias="0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

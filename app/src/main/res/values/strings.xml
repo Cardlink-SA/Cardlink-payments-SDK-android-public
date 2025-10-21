@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">PaymentsSdkDemo</string>
+    <string name="amount">Total amount</string>
+    <string name="amount_description">Total amount in the smallest currency unit (for example 15.00€ = 1500)</string>
+    <string name="merchant_id">Merchant id</string>
+    <string name="payment_title">Proceed to payment</string>
+    <string name="zip">Postal code</string>
+    <string name="city">City</string>
+    <string name="currency_code">Currency code</string>
+    <string name="currency_code_description">The three-letter currency code, as defined by ISO-4217, of the transaction, such as "EUR" for Euros, or the respective number "978"</string>
+    <string name="address">Address line</string>
+    <string name="country">Country code</string>
+    <string name="country_description">Country code (eg. GR) or the corresponding number (eg. 300) </string>
+    <string name="description">Description</string>
+    <string name="recurring_frequency">Recurring frequency</string>
+    <string name="recurring_frequency_description">Indicates the frequency of recurring payments and defines the minimum number of days between two subsequent payments. 28 is special value indicating that transactions are to be initiated on monthly basis. Max value = 30</string>
+    <string name="recurring_end">Recurring end date</string>
+    <string name="recurring_end_description">Recurring end date with format YYYYMMDD. This value is mandatory if recurring frequency is present</string>
+</resources>

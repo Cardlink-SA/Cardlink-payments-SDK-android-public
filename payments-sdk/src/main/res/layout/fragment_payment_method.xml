@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary">
+
+    <gr.cardlink.payments.presentation.ui.view.ToolbarView
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:text="@string/sdk_payment"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:background="@drawable/background_default_top_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cartImageView" />
+
+    <ImageView
+        android:id="@+id/cartImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarView"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/cartTotalTitleTextView"
+        style="@style/Text.XLarge.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/spacing_12"
+        android:text="@string/sdk_cart_total"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/cartImageView"
+        app:layout_constraintStart_toEndOf="@id/cartImageView"
+        app:layout_constraintTop_toTopOf="@id/cartImageView"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/cartTotalValueTextView"
+        style="@style/Text.XLarge.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/spacing_20"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/cartImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cartImageView"
+        tools:text="$20.00" />
+
+    <TextView
+        android:id="@+id/stateTextView"
+        style="@style/CreditCardStepDescription"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        android:layout_marginTop="@dimen/spacing_36"
+        android:text="@string/sdk_card_step_select_payment_method"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/content_container"
+        tools:viewBindingIgnore="true" />
+
+    <ProgressBar
+        android:id="@+id/loaderView"
+        android:layout_width="@dimen/main_button_loader_size"
+        android:layout_height="@dimen/main_button_loader_size"
+        android:layout_gravity="center_horizontal"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/secondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35" />
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/paymentMethodsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_24"
+        android:padding="@dimen/spacing_4"
+        app:flexWrap="wrap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stateTextView">
+
+        <FrameLayout
+            android:id="@+id/cardContainerView"
+            android:layout_width="@dimen/method_selection_width"
+            android:layout_height="@dimen/method_selection_height"
+            android:layout_margin="@dimen/spacing_12"
+            android:background="@drawable/selector_button"
+            android:elevation="@dimen/method_selection_elevation"
+            android:foreground="@drawable/ripple_default_radius"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/cardContentView"
+                style="@style/Text.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/spacing_16"
+                android:contentDescription="@string/sdk_payment_method_card"
+                android:drawablePadding="@dimen/spacing_4"
+                android:text="@string/sdk_payment_method_card_text"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                app:drawableTopCompat="@drawable/ic_method_card" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/irisContainerView"
+            android:layout_width="@dimen/method_selection_width"
+            android:layout_height="@dimen/method_selection_height"
+            android:layout_margin="@dimen/spacing_12"
+            android:background="@drawable/selector_button"
+            android:elevation="@dimen/method_selection_elevation"
+            android:foreground="@drawable/ripple_default_radius"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/sdk_payment_method_iris"
+                android:src="@drawable/ic_method_iris" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/paypalContainerView"
+            android:layout_width="@dimen/method_selection_width"
+            android:layout_height="@dimen/method_selection_height"
+            android:layout_margin="@dimen/spacing_12"
+            android:background="@drawable/selector_button"
+            android:elevation="@dimen/method_selection_elevation"
+            android:foreground="@drawable/ripple_default_radius"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/sdk_payment_method_paypal"
+                android:src="@drawable/ic_method_paypal" />
+        </FrameLayout>
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <LinearLayout
+        android:id="@+id/logosLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_36"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/logosImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/logoVisaImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_6"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_logo_visa_small"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/logoMasterCardImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_6"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_logo_mastercard_small"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/logoMaestroImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_6"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_logo_maestro_small"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/logoDinersImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_6"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_logo_diners_small"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/logoDiscoverImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_6"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_logo_discover_small"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/logoAmexImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_6"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_logo_amex_small"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logosImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_36"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_logos"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@id/logoImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="@dimen/acquirer_logo_width"
+        android:layout_height="@dimen/acquirer_logo_height"
+        android:layout_marginBottom="@dimen/spacing_24"
+        android:importantForAccessibility="no"
+        android:scaleType="fitCenter"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@drawable/ic_logo_cardlink"
+        tools:visibility="visible" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:background="@color/black">
+
+    <View
+        android:id="@+id/placeholderDigit1View"
+        style="@style/CreditCardDotPlaceholder.White"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/placeholderDigit2View"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/placeholderDigit2View"
+        style="@style/CreditCardDotPlaceholder.White"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/expirationDateSeparatorView"
+        app:layout_constraintStart_toEndOf="@id/placeholderDigit1View"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/expirationDateSeparatorView"
+        style="@style/Text.Large.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/spacing_2"
+        android:text="/"
+        android:textStyle="italic"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/placeholderDigit3View"
+        app:layout_constraintStart_toEndOf="@id/placeholderDigit4View"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <View
+        android:id="@+id/placeholderDigit3View"
+        style="@style/CreditCardDotPlaceholder.White"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/placeholderDigit4View"
+        app:layout_constraintStart_toEndOf="@id/expirationDateSeparatorView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/placeholderDigit4View"
+        style="@style/CreditCardDotPlaceholder.White"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/placeholderDigit3View"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/expirationMonthDigit1View"
+        style="@style/Text.Intermediate.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/placeholderDigit1View"
+        app:layout_constraintEnd_toEndOf="@id/placeholderDigit1View"
+        app:layout_constraintStart_toStartOf="@id/placeholderDigit1View"
+        app:layout_constraintTop_toTopOf="@id/placeholderDigit1View"
+        tools:text="0" />
+
+    <TextView
+        android:id="@+id/expirationMonthDigit2View"
+        style="@style/Text.Intermediate.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/placeholderDigit2View"
+        app:layout_constraintEnd_toEndOf="@id/placeholderDigit2View"
+        app:layout_constraintStart_toStartOf="@id/placeholderDigit2View"
+        app:layout_constraintTop_toTopOf="@id/placeholderDigit2View"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/expirationYearDigit1View"
+        style="@style/Text.Intermediate.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/placeholderDigit3View"
+        app:layout_constraintEnd_toEndOf="@id/placeholderDigit3View"
+        app:layout_constraintStart_toStartOf="@id/placeholderDigit3View"
+        app:layout_constraintTop_toTopOf="@id/placeholderDigit3View"
+        tools:text="2" />
+
+    <TextView
+        android:id="@+id/expirationYearDigit2View"
+        style="@style/Text.Intermediate.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="@id/placeholderDigit4View"
+        app:layout_constraintEnd_toEndOf="@id/placeholderDigit4View"
+        app:layout_constraintStart_toStartOf="@id/placeholderDigit4View"
+        app:layout_constraintTop_toTopOf="@id/placeholderDigit4View"
+        tools:text="3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

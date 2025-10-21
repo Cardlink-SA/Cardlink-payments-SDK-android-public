@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#45BEAA</color>
+    <color name="secondary">#277777</color>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#20426D</color>
+    <color name="gray_dark">#787878</color>
+    <color name="gray_light">#F7F7F7</color>
+    <color name="gray">#D7D7D7</color>
+    <color name="black_25">#252525</color>
+    <color name="black_2b">#2B2B2B</color>
+    <color name="card_unknown_start">#7D858D</color>
+    <color name="card_unknown_end">#414447</color>
+    <color name="card_visa">#FF8900</color>
+    <color name="card_amex_start">@color/primary</color>
+    <color name="card_amex_end">#1F72CD</color>
+    <color name="card_diners_start">@color/gray</color>
+    <color name="card_diners_end">@color/gray_dark</color>
+    <color name="card_mastercard_start">@color/card_unknown_start</color>
+    <color name="card_mastercard_end">@color/card_unknown_end</color>
+    <color name="card_edit_text">#EDF1F7</color>
+    <color name="card_step_description">#969696</color>
+    <color name="card_edit_text_error">#FFF5F3</color>
+    <color name="instalment">#8792A2</color>
+    <color name="divider">#E7E7E7</color>
+
+</resources>

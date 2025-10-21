@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/spacing_24" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/spacing_24" />
+
+    <TextView
+        android:id="@+id/stateTextView"
+        style="@style/CreditCardStepDescription"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="You have 3 saved cards" />
+
+    <gr.cardlink.payments.presentation.ui.view.card.single.SingleCardView
+        android:id="@+id/selectedCardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stateTextView" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cardsRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_16"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintBottom_toTopOf="@id/addCardButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/selectedCardView"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:requiresFadingEdge="vertical"
+        tools:itemCount="5"
+        tools:listitem="@layout/list_item_card_row" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/addCardButton"
+        style="@style/Button.AddCard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sdk_button_add_card"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/cardsRecyclerView"
+        app:layout_constraintVertical_bias="0" />
+
+</merge>

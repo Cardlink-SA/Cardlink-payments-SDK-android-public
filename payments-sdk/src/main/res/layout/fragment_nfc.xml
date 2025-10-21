@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <gr.cardlink.payments.presentation.ui.view.ToolbarView
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sdk_quick_add_tap"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_default_top_radius">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_24"
+            tools:viewBindingIgnore="true" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_24"
+            tools:viewBindingIgnore="true" />
+
+        <TextView
+            android:id="@+id/descriptionTextView"
+            style="@style/Text.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sdk_quick_add_tap_description"
+            android:textColor="@color/black_25"
+            app:layout_constraintBottom_toTopOf="@id/imageView"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="@dimen/nfc_image_size"
+            android:layout_height="@dimen/nfc_image_size"
+            android:layout_marginTop="@dimen/nfc_content_spacing"
+            android:importantForAccessibility="no"
+            android:src="@drawable/ic_tap_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/descriptionTextView" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loaderView"
+            style="@style/Loader"
+            android:layout_marginTop="@dimen/nfc_content_spacing"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <TextView
+            android:id="@+id/timer_text_view"
+            style="@style/Text.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/secondary"
+            app:layout_constraintBottom_toBottomOf="@id/loaderView"
+            app:layout_constraintEnd_toEndOf="@id/loaderView"
+            app:layout_constraintStart_toStartOf="@id/loaderView"
+            app:layout_constraintTop_toTopOf="@id/loaderView"
+            tools:text="30" />
+
+        <TextView
+            android:id="@+id/errorTextView"
+            style="@style/Text.Large"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/nfc_content_spacing"
+            android:gravity="center"
+            android:textColor="@color/black_25"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            tools:text="Something went wrong. Try again." />
+
+        <gr.cardlink.payments.presentation.ui.view.MainButtonView
+            android:id="@+id/retryButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_16"
+            android:text="@string/sdk_button_retry"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/errorTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

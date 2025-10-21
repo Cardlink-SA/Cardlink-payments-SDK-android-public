@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="@dimen/credit_card_radius" />
+    <gradient
+        android:endColor="@color/card_unknown_end"
+        android:startColor="@color/card_unknown_start"
+        android:type="linear" />
+</shape>

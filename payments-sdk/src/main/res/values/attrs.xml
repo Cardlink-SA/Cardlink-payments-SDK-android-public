@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MaskedView">
+        <attr name="maskDotColorStart" format="color" />
+        <attr name="maskDotColorEnd" format="color" />
+        <attr name="maskDigitColor" format="color" />
+        <attr name="maskDigitStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MaskedEditTextWrapper">
+        <attr name="maskedEditTextNextId" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="MainButtonView">
+        <attr name="android:text" format="string" />
+        <attr name="android:enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ToolbarView">
+        <attr name="android:text" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectionButtonView">
+        <attr name="android:src" format="reference" />
+        <attr name="android:text" format="string" />
+    </declare-styleable>
+</resources>

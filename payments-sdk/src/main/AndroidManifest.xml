@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="gr.cardlink.payments">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application>
+        <activity
+            android:name="gr.cardlink.payments.presentation.ui.CardlinkPaymentsActivity"
+            android:theme="@style/LibTheme"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="screen_slide_animation_duration">300</integer>
+    <integer name="card_flip_duration_full">400</integer>
+    <integer name="card_flip_duration_half">200</integer>
+</resources>

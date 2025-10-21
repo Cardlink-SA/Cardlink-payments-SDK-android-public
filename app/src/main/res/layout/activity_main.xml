@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/amountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/amount"
+            android:imeOptions="actionDone"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/amount_description"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/currencyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/currency_code"
+            android:inputType="number"
+            android:maxLength="3"
+            android:text="978" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_code_description"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/description"
+            android:inputType="text"
+            android:text="A test description" />
+
+        <EditText
+            android:id="@+id/addressLineEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/address"
+            android:inputType="text"
+            android:text="Test address line" />
+
+        <EditText
+            android:id="@+id/cityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/city"
+            android:inputType="text"
+            android:text="Athens" />
+
+        <EditText
+            android:id="@+id/countryEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/country"
+            android:inputType="text"
+            android:text="300" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/country_description"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/zipCodeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/zip"
+            android:inputType="numberDecimal"
+            android:text="12345" />
+
+        <EditText
+            android:id="@+id/recurringFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/recurring_frequency"
+            android:inputType="number"
+            android:maxLength="2" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recurring_frequency_description"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/recurringEndDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/recurring_end"
+            android:inputType="date" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/recurring_end_description"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/proceedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/payment_title" />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

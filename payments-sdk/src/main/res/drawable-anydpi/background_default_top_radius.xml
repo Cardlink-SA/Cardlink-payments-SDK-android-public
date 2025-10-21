@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/backgroundDrawable">
+        <shape>
+            <solid android:color="@color/primary" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <corners
+                android:topLeftRadius="@dimen/inner_background_radius_top"
+                android:topRightRadius="@dimen/inner_background_radius_top" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+</layer-list>

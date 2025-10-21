@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:fitsSystemWindows="false"
+    android:animateLayoutChanges="true">
+
+    <gr.cardlink.payments.presentation.ui.view.ToolbarView
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:text="@string/sdk_payment"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/backgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_16"
+        android:background="@drawable/background_default_top_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cartImageView" />
+
+    <ImageView
+        android:id="@+id/cartImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/spacing_20"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_cart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarView" />
+
+    <TextView
+        android:id="@+id/cartTotalTitleTextView"
+        style="@style/Text.XLarge.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/spacing_12"
+        android:text="@string/sdk_cart_total"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/cartImageView"
+        app:layout_constraintStart_toEndOf="@id/cartImageView"
+        app:layout_constraintTop_toTopOf="@id/cartImageView" />
+
+    <TextView
+        android:id="@+id/cartTotalValueTextView"
+        style="@style/Text.XLarge.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginEnd="@dimen/spacing_20"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/cartImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cartImageView"
+        tools:text="$20.00" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/installmentsContainerView"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_20"
+        android:hint="@string/sdk_instalments_hint"
+        android:visibility="gone"
+        app:boxCornerRadiusBottomEnd="@dimen/radius_default"
+        app:boxCornerRadiusBottomStart="@dimen/radius_default"
+        app:boxCornerRadiusTopEnd="@dimen/radius_default"
+        app:boxCornerRadiusTopStart="@dimen/radius_default"
+        app:boxStrokeColor="@color/selector_instalment"
+        app:hintTextColor="@color/instalment"
+        android:labelFor="@id/installmentsDropdownView"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        app:layout_constraintTop_toTopOf="@id/backgroundView">
+
+        <AutoCompleteTextView
+            android:id="@+id/installmentsDropdownView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:maxLines="1"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <gr.cardlink.payments.presentation.ui.view.card.single.SingleCardInputView
+        android:id="@+id/singleCardInputView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/spacing_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/logoImageView"
+        app:layout_constraintTop_toTopOf="@id/cardQuickAddButton" />
+
+    <gr.cardlink.payments.presentation.ui.view.card.multiple.MultipleCardInputView
+        android:id="@+id/multipleCardView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/logoImageView"
+        app:layout_constraintTop_toTopOf="@id/cardQuickAddButton"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/cardQuickAddButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/card_quick_add_spacing"
+        android:layout_marginEnd="@dimen/card_quick_add_spacing"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_add_card"
+        android:contentDescription="@string/sdk_button_add_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/installmentsContainerView" />
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="@dimen/acquirer_logo_width"
+        android:layout_height="@dimen/acquirer_logo_height"
+        android:layout_marginBottom="@dimen/spacing_24"
+        android:importantForAccessibility="no"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/ic_logo_cardlink"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/loaderView"
+        android:layout_width="@dimen/main_button_loader_size"
+        android:layout_height="@dimen/main_button_loader_size"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/secondary"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.35"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:orientation="vertical">
+
+    <gr.cardlink.payments.presentation.ui.view.ToolbarView
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sdk_payment" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_default_top_radius">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/startGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/spacing_24" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/endGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/spacing_24" />
+
+        <TextView
+            android:id="@+id/stateTextView"
+            style="@style/CreditCardStepDescription"
+            android:layout_marginTop="@dimen/spacing_36"
+            android:text="@string/sdk_payment_card_info_stored"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <gr.cardlink.payments.presentation.ui.view.card.single.SingleCardView
+            android:id="@+id/singleCardInputView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/stateTextView" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/loaderView"
+            style="@style/Loader"
+            android:layout_marginTop="@dimen/nfc_content_spacing"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/singleCardInputView" />
+
+        <ImageView
+            android:id="@+id/loaderLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_lock"
+            android:importantForAccessibility="no"
+            app:layout_constraintBottom_toBottomOf="@id/loaderView"
+            app:layout_constraintEnd_toEndOf="@id/loaderView"
+            app:layout_constraintStart_toStartOf="@id/loaderView"
+            app:layout_constraintTop_toTopOf="@id/loaderView" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/loaderGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="loaderView, loaderLock" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/completedView"
+            android:layout_width="@dimen/loader_size"
+            android:layout_height="@dimen/loader_size"
+            android:layout_marginTop="@dimen/nfc_content_spacing"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            app:layout_constraintTop_toBottomOf="@id/singleCardInputView" />
+
+        <gr.cardlink.payments.presentation.ui.view.MainButtonView
+            android:id="@+id/backButtonView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_36"
+            android:text="@string/sdk_button_back_to_shop"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/endGuideline"
+            app:layout_constraintStart_toEndOf="@id/startGuideline"
+            tools:visibility="visible" />
+
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/spacing_36"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

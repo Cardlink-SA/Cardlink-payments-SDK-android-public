@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:focusable="true"
+    android:clickable="true"
+    android:paddingVertical="@dimen/spacing_8"
+    tools:background="@color/primary">
+
+    <ImageView
+        android:id="@+id/buttonView"
+        android:layout_width="@dimen/min_clickable_size"
+        android:layout_height="@dimen/min_clickable_size"
+        android:background="?actionBarItemBackground"
+        android:padding="@dimen/spacing_12"
+        android:src="@drawable/ic_close"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        style="@style/Text.Large.White"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/spaceView"
+        app:layout_constraintStart_toEndOf="@id/buttonView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Payment" />
+
+    <Space
+        android:id="@+id/spaceView"
+        android:layout_width="@dimen/min_clickable_size"
+        android:layout_height="@dimen/min_clickable_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

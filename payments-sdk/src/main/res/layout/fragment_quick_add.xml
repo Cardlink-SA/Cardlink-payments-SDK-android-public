@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    android:clipToPadding="false"
+    android:clickable="true">
+
+    <gr.cardlink.payments.presentation.ui.view.ToolbarView
+        android:id="@+id/toolbarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sdk_payment"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:viewBindingIgnore="true" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/spacing_24"
+        tools:viewBindingIgnore="true" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/spacing_24"
+        tools:viewBindingIgnore="true" />
+
+    <View
+        android:id="@+id/backgroundView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/background_default_top_radius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarView"
+        tools:viewBindingIgnore="true" />
+
+    <TextView
+        android:id="@+id/titleTextView"
+        style="@style/CreditCardStepDescription"
+        android:layout_marginTop="@dimen/spacing_36"
+        android:text="@string/sdk_select_quick_add_method"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toTopOf="@id/backgroundView"
+        tools:viewBindingIgnore="true" />
+
+    <gr.cardlink.payments.presentation.ui.view.SelectionButtonView
+        android:id="@+id/scanButtonView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_36"
+        android:src="@drawable/ic_add_card"
+        android:text="@string/sdk_quick_add_scan"
+        android:visibility="gone"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView" />
+
+    <gr.cardlink.payments.presentation.ui.view.SelectionButtonView
+        android:id="@+id/nfcButtonView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_24"
+        android:src="@drawable/ic_tap_card"
+        android:text="@string/sdk_quick_add_tap"
+        app:layout_constraintEnd_toStartOf="@id/endGuideline"
+        app:layout_constraintStart_toEndOf="@id/startGuideline"
+        app:layout_constraintTop_toBottomOf="@id/scanButtonView" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

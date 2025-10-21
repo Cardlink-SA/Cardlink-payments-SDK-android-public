@@ -1,0 +1,126 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+    id 'org.jetbrains.dokka'
+}
+
+android {
+    compileSdk rootProject.compileSdkVersion
+
+    defaultConfig {
+        minSdk rootProject.minSdkVersion
+        targetSdk rootProject.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("boolean", "HTTP_LOGGING_ENABLED", "false")
+        }
+        debug {
+            buildConfigField("boolean", "HTTP_LOGGING_ENABLED", "true")
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    testOptions {
+        unitTests.includeAndroidResources  = true
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    def coreKtxVersion = '1.8.0'
+    implementation "androidx.core:core-ktx:$coreKtxVersion"
+
+    def appCompatVersion = '1.6.1'
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+
+    def materialVersion = '1.8.0'
+    implementation "com.google.android.material:material:$materialVersion"
+
+    def constraintLayoutVersion = '2.1.4'
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+
+    def maskedEditTextVersion = '4.0.7'
+    implementation "io.github.vicmikhailau:MaskedEditText:$maskedEditTextVersion"
+
+    def lottieVersion = '5.2.0'
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    def emvCardVersion = '3.0.1'
+    implementation "com.github.devnied.emvnfccard:library:$emvCardVersion"
+
+    def retrofitVersion = '2.9.0'
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    implementation "com.squareup.retrofit2:adapter-rxjava3:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-scalars:$retrofitVersion"
+
+    def retrofitLoggerVersion = '4.9.1'
+    implementation "com.squareup.okhttp3:logging-interceptor:$retrofitLoggerVersion"
+
+    def gsonVersion = '2.8.9'
+    implementation "com.google.code.gson:gson:$gsonVersion"
+
+    def rxKotlinVersion = '3.0.1'
+    implementation "io.reactivex.rxjava3:rxkotlin:$rxKotlinVersion"
+
+    def rxAndroidVersion = '3.0.0'
+    implementation "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion"
+
+    def flexboxVersion = '3.0.0'
+    implementation "com.google.android.flexbox:flexbox:$flexboxVersion"
+
+    def junitVersion = '4.13.2'
+    testImplementation "junit:junit:$junitVersion"
+
+    def mockitoVersion = '4.7.0'
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+
+    def androidJunitVersion = '1.1.3'
+    androidTestImplementation "androidx.test.ext:junit:$androidJunitVersion"
+}
+
+publishing {
+    def githubProperties = new Properties()
+    githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/novidea-dev/Cardlink-payments-SDK-android-public")
+            credentials {
+                username = githubProperties['id']
+                password = githubProperties['token']
+            }
+        }
+    }
+
+    publications {
+        gpr(MavenPublication) {
+            groupId = 'gr.cardlink.payments'
+            artifactId = 'payments-sdk'
+            version = rootProject.libVersion
+
+            afterEvaluate {
+                from components.release
+            }
+        }
+    }
+}
